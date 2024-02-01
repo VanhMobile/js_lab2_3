@@ -1,41 +1,17 @@
-const mangNguoi = [
-  { name: "Bob", age: 30, voted: true },
-  { name: "Jake", age: 32, voted: true },
-  { name: "Kate", age: 25, voted: false },
-  { name: "Sam", age: 20, voted: false },
-  { name: "Phil", age: 21, voted: true },
-  { name: "Ed", age: 55, voted: true },
-  { name: "Tami", age: 54, voted: true },
-  { name: "Mary", age: 31, voted: false },
-  { name: "Becky", age: 43, voted: false },
-  { name: "Joey", age: 41, voted: true },
-  { name: "Jeff", age: 30, voted: true },
-  { name: "Zack", age: 19, voted: false },
+const products = [
+  { id: 1, name: "Product 1", type: "Type A" },
+  { id: 2, name: "Product 2", type: "Type B" },
+  { id: 3, name: "Product 3", type: "Type A" },
+  { id: 4, name: "Product 4", type: "Type C" },
+  { id: 5, name: "Product 5", type: "Type B" },
+  { id: 6, name: "Product 6", type: "Type A" },
 ];
 
-const ketQuaLoc = mangNguoi
-  .filter((nguoi) => nguoi.age >= 20 && nguoi.age <= 30 && nguoi.voted)
-  .reduce((acc, item, i, arr) => {
-    acc++;
-    return acc;
-  }, 0);
+// Lọc danh sách sản phẩm theo từng loại
+const types = Array.from(new Set(products.map((product) => product.type)));
 
-console.log(ketQuaLoc);
+// Thêm đối tượng "all" vào mảng loại sản phẩm
+types.unshift("all");
 
-const ketQua1 = mangNguoi
-  .filter((nguoi) => nguoi.age >= 31 && nguoi.age <= 40 && nguoi.voted)
-  .reduce((acc, item, i, arr) => {
-    acc++;
-    return acc;
-  }, 0);
-
-console.log(ketQua1);
-
-const ketQua = mangNguoi
-  .filter((nguoi) => nguoi.age >= 40 && nguoi.voted)
-  .reduce((acc, item, i, arr) => {
-    acc++;
-    return acc;
-  }, 0);
-
-console.log(ketQua);
+// Kết quả: ['all', 'Type A', 'Type B', 'Type C']
+console.log(types);
